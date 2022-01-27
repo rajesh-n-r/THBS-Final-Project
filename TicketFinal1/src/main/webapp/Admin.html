@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Train Ticket Booking </title>
+    <link rel="stylesheet" type="text/css" href="admin.css">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="active">
+            <a href="#">Home</a>
+            </div>
+            <nav>
+            
+            <ul id ='MenuItems'>
+              <li> <a href="ShowTrains.jsp">Trains Available</a></li>
+              <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block' "
+                            style="width: auto;">Add/Remove Train</button></li>
+            	<li> <a href="NewIndex.jsp">Log-out</a></li>
+            </ul>
+            </nav>
+               
+        </div>
+        
+        <div id='login-form' class='login-page'>
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" onclick="login()" class="toggle-btn">Add Train</button>
+                <button type="button" onclick="register()" class="toggle-btn">Remove</button>
+            </div>
+            
+            
+        <!---login--->
+            <form id="login"  action="adminadd" class="input-group-log">
+            <center>
+               <input type="number" class="input-field"  name="trainno" placeholder="TRAIN NUMBER" required>
+    			<input type="text" class="input-field" name="trainname" placeholder="TRAIN NAME" required>
+                <input type="text" class="input-field" name="source" placeholder="SOURCE" required>
+				<input type="text" class="input-field" name="destination" placeholder="DESTINATION" required>
+                 <input type="number" class="input-field" name="price" placeholder="Fare" required>
+                 <button type="submit" class="submit-btn-log">Add</button>
+            </center>
+            </form>     
+            
+            
+        <!---registration--->
+            <form id="register" action="adminremove" class="input-group-reg">
+            <center>
+                 <input type="number" class="input-field" name="trainno" placeholder="TRAIN NUMBER" required>
+                 <button type="submit" class="submit-btn-reg">Remove</button>
+       		</center>
+            </form>
+        </div>
+        
+        </div>
+        
+        
+    </div>
+    
+    <script>
+        var x=document.getElementById('login');
+        var y=document.getElementById('register');
+        var z=document.getElementById('btn');
+        function register()
+        {
+            x.style.left='-400px';
+            y.style.left='50px';
+            z.style.left='110px';
+        }
+        function login()
+        {
+            x.style.left='50px';
+            y.style.left='450px';
+            z.style.left='0px';
+        }
+    </script>
+    
+    <script>
+        var modal=document.getElementById('login-form');
+        window.onclick=function(event)
+        {
+            if(event.target==modal)
+                {
+                    modal.style.display="none";
+                }
+        }
+        
+    </script>
+    
+     
+    
+    
+    </body></html>
+
+    
+    
+    

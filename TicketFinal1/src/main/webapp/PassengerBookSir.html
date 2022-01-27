@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Train Ticket Booking</title>
+<style>
+
+    center{
+    height: 98%;
+    width: 99%;
+    background: #fff;
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(train1.png);
+    background-position:center;
+	background-size:cover;
+    position: absolute;
+    }
+    h2 {
+        	color: pink;
+        	font-size: 40px;
+        	font-weight: bold;
+        	font-family: sans-serif;
+      }
+   .container{  
+	text-align: center; 
+	}
+input[type=submit] {
+    background-color: yellow;
+}
+input[type=text] {
+    padding: 15px 10px; 
+    width: 200px;
+    height: 1px;
+    border: 2px solid black;
+}
+input[type=number] {
+   padding: 15px 10px; 
+    width: 100px;
+    height: 1px;
+    border: 2px solid black;
+}
+input[type=date] {
+ padding: 15px 10px; 
+  padding: 20px 10px; 
+    width: 200px;
+    height: 1px;
+}
+</style>
+</head>
+<body>
+<center>
+<marquee width="60%" direction="left" height="100px" behavior="scroll" direction="up" scrollamount="8"><h2>Welcome to Train Ticket Booking</h2></marquee>
+<br>
+<form action="booktrains">
+
+	<!--  	<h3 align ="center">TRAIN NO.<input type="number" name="trainno"><br/><br/></h3>  -->
+	<!--  <h3 align = "center">DATE<input type="date" name="date"><br/><br/><h3>  -->	  
+
+<h3 align="center" style="color:yellow;font-size: 30px;"> Select Number of Passengers: &nbsp                           
+
+<select id="passenger_count" name="passenger_count" oninput="displayPassengerDetails()">
+	<option> </option>
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+	<option>6</option>	
+</select>
+</h3>
+<h3 id="label1" style="color:orange;font-size: 25px;"></h3>
+<br>
+<table id="passenger_table" border=0 style="color:white;font-size: 18px;""></table>
+<script>
+
+function deleteAllRows(table){
+	var parent=table;
+	while(parent.hasChildNodes()){
+		parent.removeChild(parent.firstChild);
+	}
+}
+function displayPassengerDetails(){
+	let passenger_count = document.getElementById("passenger_count").value;
+	document.getElementById("label1").innerHTML = "Passenger Details";
+
+	var table = document.getElementById("passenger_table");		
+	deleteAllRows(table);
+	for(let i=0;i<passenger_count;i++){
+		var row = table.insertRow(i);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		var cell6 = row.insertCell(5);
+		var cell7 = row.insertCell(6);
+		
+		cell1.innerHTML=(i+1)+".";
+		cell2.innerHTML="Passenger Name";
+		
+		var passengerName=document.createElement("input");
+		passengerName.type="text";
+		passengerName.id="name_"+(i+1);
+		passengerName.name="name_"+(i+1);
+		cell3.appendChild(passengerName);
+		
+		cell4.innerHTML="Age";
+		var age=document.createElement("input");
+		age.type="number";
+		age.id="age_"+(i+1);
+		age.name="age_"+(i+1);
+		cell5.appendChild(age);
+		cell6.innerHTML="Gender";
+		
+		var gender1 = document.createElement("input");
+		
+		gender1.type="radio";
+		gender1.value="Male";
+		
+		gender1.name="gender_"+(i+1);
+		gender1.id="gender_"+(i+1);
+		gender1.name="gender_"+(i+1);
+		cell7.appendChild(gender1);
+		
+		var male_label1 = document.createElement("label");
+		male_label1.innerHTML="Male";		
+		cell7.appendChild(male_label1);
+		
+		var gender2 = document.createElement("input");
+		gender2.type="radio";
+		gender2.value="Female";
+		gender2.id="gender_"+(i+1);
+		gender2.name="gender_"+(i+1);
+		cell7.appendChild(gender2);
+		var female_label1 = document.createElement("label");
+		female_label1.innerHTML="Female";		
+		cell7.appendChild(female_label1);
+
+		var gender3 = document.createElement("input");
+		gender3.type="radio";
+		gender3.value="others";
+		gender3.id="gender_"+(i+1);
+		gender3.name="gender_"+(i+1);		
+		cell7.appendChild(gender3);
+		var others_label1 = document.createElement("label");
+		others_label1.innerHTML="Others";		
+		cell7.appendChild(others_label1);
+		
+	}	
+}
+</script>
+<br/>
+<br/>
+<div class="container"> 
+		<input type="submit" value=" Book Now "> <br/>
+</div> 
+</center>
+</body>
+</html>

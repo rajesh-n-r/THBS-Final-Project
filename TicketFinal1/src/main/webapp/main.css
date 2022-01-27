@@ -1,0 +1,29 @@
+
+body {
+     
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(5.jpg);
+    
+}
+
+h1 {
+color:orange;
+text-align:center;
+font-size: 3.1em;
+font-weight: 400;
+}
+#ticket {
+font-family: 'Roboto Mono', monospace;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: space-between;
+background-color: #fff;
+border: 1px solid #aaa;
+width: 800px;
+max-width: 80%;
+margin: 20px auto;
+align-self: center;
+padding: 15px;
+text-align: left;
+}
+
